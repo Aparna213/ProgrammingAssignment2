@@ -1,7 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
+##makeCacheMatrix function creates a new matrix
+##The first function, makeVector creates a special "vector", which is really a list containing a function to
 
-## Write a short comment describing this function
+##set the value of the matrix
+##get the value of the matrix
+##set the value of the inverse
+##get the value of the inverse
+
 
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
@@ -15,10 +19,11 @@ makeCacheMatrix <- function(x = matrix()) {
   list(set = set, get = get,
        setinverse = setinverse,
        getinverse = getinverse)
+  ##this is requires for the following cachesolve to work
+  
 }
 
 
-## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
   ##Added some new comments
@@ -26,6 +31,7 @@ cacheSolve <- function(x, ...) {
   if(!is.null(i)) {
     message("getting cached data")
     return(i)
+    ##if already calculated prints the message"getting cached data"
   }
   data <- x$get()
   i <- solve(data, ...)
